@@ -1,0 +1,23 @@
+# home.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book App</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the Book App</h1>
+    <a href="{% url 'sign_in' %}">Sign In</a>
+    <div class="book-list">
+        {% for book in books %}
+            <div class="book-item">
+                <h2>{{ book.title }}</h2>
+                <p>Author: {{ book.author }}</p>
+                <img src="{{ book.image.url }}" alt="{{ book.title }}">
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
